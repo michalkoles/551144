@@ -1,0 +1,25 @@
+{block menu}{include menu.latte}{/block menu}
+
+{block content1}
+
+<div id="dbody">
+
+<h1 n:block="title">{$presenter->acl_action->view_title }</h1>
+
+<!--
+<br>
+Module: {$presenter->presenter_module }
+<br>
+Presenter: {$presenter->presenter_name }
+<br>
+Action: {$presenter->presenter_action }
+
+-->
+{if isset($presenter->acl_grids[1]) && $presenter->acl_grids[1]->grid_type == 'LOV'}
+{include xlov.latte}
+{else}
+{control aclForm01Form}
+{/if}
+
+
+</div>

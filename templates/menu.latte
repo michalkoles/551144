@@ -1,0 +1,13 @@
+<div id="header2" class="miko_hideable w3-hide-small">
+<div id="submenu">
+    {php $x=0;}
+    {foreach $presenter->acl_actions as $menu_item}
+          {if ($x > 0)}
+              <span id="menu-sep">&nbsp;|</span>
+          {/if}
+          <a id="menu{$x}" class="{$menu_item->active}" n:if="$user->isAllowed($menu_item->menu_sec_resource_code,$menu_item->menu_sec_action_code)" n:href="$menu_item->menu_link">{$menu_item->menu_name}</a>
+          {php $x+=1;}
+    {/foreach}
+</div>
+
+</div>
